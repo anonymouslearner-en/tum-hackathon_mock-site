@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Read(//private/tmp/**)",
+      "Read(//tmp/**)",
+      "Bash(cp -r /tmp/hd-shop/. /Users/lintee/Software/Projects/Web/tum_mock-shop/ && ls /Users/lintee/Software/Projects/Web/tum_mock-shop)",
+      "Bash(npm install *)",
+      "Bash(npx shadcn@latest init --yes)",
+      "Bash(npx shadcn@latest init)",
+      "Bash(npx shadcn@latest add button badge card)",
+      "Bash(npm run *)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(npx shadcn@latest add sheet dialog input label separator --yes)"
+    ]
+  }
+}
