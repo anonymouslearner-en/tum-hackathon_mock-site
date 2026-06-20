@@ -66,10 +66,10 @@ export function CheckoutModal({
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && handleClose()}>
-      <DialogContent className="bg-(--color-hd-dark) border border-(--color-border) text-white max-w-lg rounded-none p-0 gap-0">
+      <DialogContent className="bg-(--color-hd-dark) border border-(--color-border) text-white max-w-lg rounded-none p-0 gap-0 max-h-[90dvh] flex flex-col overflow-hidden">
         {step === "form" && (
           <>
-            <DialogHeader className="px-6 pt-6 pb-4 border-b border-(--color-border)">
+            <DialogHeader className="px-6 pt-6 pb-4 border-b border-(--color-border) shrink-0">
               <DialogTitle className="font-black uppercase tracking-widest text-white">
                 Checkout{" "}
                 <span className="text-(--color-hd-orange) text-sm font-normal normal-case tracking-normal">
@@ -78,7 +78,8 @@ export function CheckoutModal({
               </DialogTitle>
             </DialogHeader>
 
-            <form onSubmit={handleSubmit} className="px-6 py-5 space-y-5">
+            <form onSubmit={handleSubmit} className="flex flex-col flex-1 min-h-0">
+            <div className="overflow-y-auto flex-1 px-6 py-5 space-y-5">
               {/* Order summary */}
               <div className="bg-secondary rounded-none p-3 space-y-1.5 text-sm">
                 {items.map((item) => (
@@ -208,12 +209,17 @@ export function CheckoutModal({
                 </div>
               </div>
 
+            </div>
+
+            {/* Pinned submit */}
+            <div className="shrink-0 px-6 pb-6 pt-4 border-t border-(--color-border)">
               <Button
                 type="submit"
                 className="w-full rounded-none bg-(--color-hd-orange) hover:bg-(--color-hd-orange)/90 text-white font-black uppercase tracking-widest"
               >
                 Place Order (fake)
               </Button>
+            </div>
             </form>
           </>
         )}
@@ -233,7 +239,7 @@ export function CheckoutModal({
         )}
 
         {step === "success" && (
-          <div className="flex flex-col items-center justify-center gap-6 py-16 px-8 text-center">
+          <div className="overflow-y-auto flex-1 flex flex-col items-center justify-center gap-6 py-16 px-8 text-center">
             <div className="relative">
               <div className="w-20 h-20 rounded-full bg-(--color-hd-orange)/10 flex items-center justify-center">
                 <CheckCircle className="w-10 h-10 text-(--color-hd-orange)" />
