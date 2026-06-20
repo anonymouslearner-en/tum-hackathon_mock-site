@@ -10,10 +10,10 @@ import sqlite3
 from datetime import datetime, timedelta
 
 import pandas as pd
-from faker import Faker
+from faker import Faker # type: ignore
 
 fake = Faker()
-
+ 
 
 def luhn_checksum(card_number_without_checkdigit: str) -> int:
     """Return the Luhn check digit for the given numeric string."""
@@ -38,7 +38,7 @@ def generate_card_number(prefix: str, length: int) -> str:
     return partial + str(check)
 
 
-def random_expiry_date(years_ahead=5):
+def random_expiry_date(years_ahead=5): # type: ignore
     start = datetime.now()
     end = start + timedelta(days=365 * years_ahead)
     exp = fake.date_between(start_date=start + timedelta(days=30), end_date=end)

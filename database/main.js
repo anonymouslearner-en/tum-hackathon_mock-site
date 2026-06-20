@@ -70,9 +70,9 @@ function hashPassword(pw) {
 
 function insertUsers() {
   const users = [
-    ["admin", hashPassword("admin123")],
-    ["tarun", hashPassword("physics99")],
-    ["guest", hashPassword("guest")],
+    ["Alice Example", hashPassword("admin123")],
+    ["Bob Sample", hashPassword("physics99")],
+    ["Carol Demo", hashPassword("guest")],
   ];
 
   const insert = db.prepare(
@@ -147,8 +147,9 @@ function runInTEE(enclave, user) {
 // --- main flow ---
 insertUsers();
 
-const username = "tarun";
-const password = "physics99";
+// Inject User Credentials Here ⬇
+const username = "Carol Demo";
+const password = "guest";
 
 const enclave = initializeEnclave();
 const user = login(username, password);
