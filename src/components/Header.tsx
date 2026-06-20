@@ -5,9 +5,10 @@ import { useState } from "react";
 
 interface HeaderProps {
   cartCount: number;
+  onCartOpen: () => void;
 }
 
-export function Header({ cartCount }: HeaderProps) {
+export function Header({ cartCount, onCartOpen }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -49,7 +50,8 @@ export function Header({ cartCount }: HeaderProps) {
           <Button
             variant="outline"
             size="icon"
-            className="relative border-[var(--color-border)] text-white hover:bg-[var(--color-hd-orange)] hover:border-[var(--color-hd-orange)] hover:text-white"
+            onClick={onCartOpen}
+            className="relative border-(--color-border) text-white hover:bg-(--color-hd-orange) hover:border-(--color-hd-orange) hover:text-white"
           >
             <ShoppingCart className="w-5 h-5" />
             {cartCount > 0 && (
